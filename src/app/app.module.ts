@@ -6,7 +6,7 @@ import { AppComponent } from './app.component';
 import HeaderComponent from './header/header.component';
 import HeroComponent from './hero/hero.component';
 import VideoComponent from './video/video.component';
-import { PageAboutUsComponent } from './pages/';
+import Pages from './pages/';
 import { MapaComponent } from './components';
 
 @NgModule({
@@ -16,7 +16,7 @@ import { MapaComponent } from './components';
     HeroComponent,
     VideoComponent,
     MapaComponent,
-    PageAboutUsComponent,
+    ...Pages,
   ],
   imports: [BrowserModule, AppRoutingModule],
   providers: [],

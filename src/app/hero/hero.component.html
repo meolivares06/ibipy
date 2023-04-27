@@ -1,9 +1,32 @@
-<div class="container-fluid position-relative hero-container px-0">
+<div
+  class="container-fluid position-relative hero-container px-0"
+  id="mainHeader"
+>
   <div class="p-5 mb-4 hero-image">
     <div class="container-fluid py-5 hero-text text-center">
-      <h1 class="display-5 fw-bold">IBI Floripa</h1>
-      <p class="col-md-8 fs-4 mx-auto">Igreja Baptista Independiente Floripa</p>
+      <h1 class="display-1 fw-bold">IBI Floripa</h1>
+      <p class="col-md-8 fs-4 mx-auto">Igreja Batista Independiente Floripa</p>
       <button class="btn btn-primary btn-lg" type="button">Saiba Mais</button>
     </div>
   </div>
 </div>
+
+<script>
+  window.onscroll = function () {
+    console.log(1);
+    changeMainHeaderBgColor();
+  };
+
+  var header = document.getElementById("mainHeader");
+  var sticky = header.offsetTop;
+
+  function changeMainHeaderBgColor() {
+    if (window.pageYOffset > sticky) {
+      header.classList.add("position-fixed-navbar");
+      document.body.classList.add("padding-top-for-position-fixed-navbar");
+    } else {
+      header.classList.remove("position-fixed-navbar");
+      document.body.classList.remove("padding-top-for-position-fixed-navbar");
+    }
+  }
+</script>
