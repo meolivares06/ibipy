@@ -17,7 +17,7 @@
 }
 
 .hero-container {
-  height: 50vh;
+  height: 100vh;
 }
 
 .hero-colours {
@@ -42,3 +42,9 @@
   backdrop-filter: blur(3px);
   background: rgba(253, 253, 253, 0.2);
 }
+
+@media (min-width: 576px) {
+  .hero-container {
+    height: 50vh;
+  }
+ }
