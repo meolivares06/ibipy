@@ -1,4 +1,12 @@
 body, html {
   height: 100%;
   margin: 0;
+  scroll-behavior: smooth;
+}
+
+.section-highlight {
+  background-image:  url("../src/assets/curve-line.svg");
+  background-repeat: no-repeat;
+  background-size: 1440px 300px;
+  background-position: top right;
 }
