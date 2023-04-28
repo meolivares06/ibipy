@@ -1,3 +1,4 @@
+import { FooterComponent } from './footer/footer.component';
 import MapaComponent from './mapa/mapa.component';
 
-export { MapaComponent };
+export default [MapaComponent, FooterComponent];

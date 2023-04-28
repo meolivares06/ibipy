@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule, Component } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -7,7 +7,7 @@ import HeaderComponent from './header/header.component';
 import HeroComponent from './hero/hero.component';
 import VideoComponent from './video/video.component';
 import Pages from './pages/';
-import { MapaComponent } from './components';
+import Components from './components';
 
 @NgModule({
   declarations: [
@@ -15,7 +15,7 @@ import { MapaComponent } from './components';
     HeaderComponent,
     HeroComponent,
     VideoComponent,
-    MapaComponent,
+    ...Components,
     ...Pages,
   ],
   imports: [BrowserModule, AppRoutingModule],
