@@ -4,6 +4,7 @@
       <div class="container-fluid">
         <a class="navbar-brand" href="#">
           <img src="/assets/logo.jpg" alt="Bootstrap" width="40" height="40" />
+          IBI Floripa
         </a>
         <button
           class="navbar-toggler"
@@ -63,7 +64,9 @@
     </a>
     <ul class="dropdown-menu">
       <li *ngFor="let subOption of option.childs">
-        <a class="dropdown-item" href="#">{{ subOption.label }}</a>
+        <a class="dropdown-item" href="#{{ subOption.linkId }}">{{
+          subOption.label
+        }}</a>
       </li>
     </ul>
   </li>

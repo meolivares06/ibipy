@@ -37,3 +37,8 @@
 	50%  { background-position: 100% 70%, 0 0;}
 	100% { background-position: 0% 30%, 0 0;}
 }
+
+.blur {
+  backdrop-filter: blur(3px);
+  background: rgba(253, 253, 253, 0.2);
+}
