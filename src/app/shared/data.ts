@@ -38,3 +38,12 @@ export const MENU_OPTIONS: Array<OptionMenu & { childs?: OptionMenu[] }> = [
   //   leaf: true,
   // },
 ];
+
+export interface Song {
+  title: string;
+  author: string;
+  youtubeLink: string;
+  letter: string;
+  created?: string;
+  id?: string;
+}
