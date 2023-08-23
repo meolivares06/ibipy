@@ -1,9 +1,20 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import {LandingComponent} from './components/landing/landing.component';
 
 const routes: Routes = [
-  { path: '', component: LandingComponent}
+  {
+    path: 'login',
+    loadChildren: () => import('./module/login/login.module').then(m => m.LoginModule),
+  },
+  {
+    path: 'static',
+    loadChildren: () => import('./module/static/static.module').then(m => m.StaticModule),
+  },
+  {
+    path: '',
+    loadChildren: () => import('./layout/layout.module').then(m => m.LayoutModule),
+  },
+  {path: '**', redirectTo: '/static/not-found', pathMatch: 'full'}
 ];
 
 @NgModule({

@@ -1,8 +1,9 @@
-export type OptionMenu = { label: string; leaf: boolean; linkId?: string };
+export type OptionMenu = { label: string; leaf: boolean; linkId?: string; route?: string;  };
 export const MENU_OPTIONS: Array<OptionMenu & { childs?: OptionMenu[] }> = [
   {
     label: 'Home',
     leaf: true,
+    route: 'home'
   },
   {
     label: 'Conheça-Nos',
