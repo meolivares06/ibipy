@@ -1,8 +1,9 @@
 import {Component, inject, Input, OnInit} from '@angular/core';
 import {AngularFireStorage} from '@angular/fire/compat/storage';
-import {finalize} from 'rxjs';
-import {ref, Storage, uploadBytesResumable} from '@angular/fire/storage';
+import {from, tap} from 'rxjs';
+import {ref, Storage, uploadBytesResumable, listAll, getDownloadURL} from '@angular/fire/storage';
 import * as firebase from 'firebase/compat';
+import {ImageService} from '../../services/image.service';
 
 
 @Component({
@@ -12,28 +13,24 @@ import * as firebase from 'firebase/compat';
   standalone: false,
 })
 export class AppFileUploadComponent implements OnInit {
-
   fileName = '';
-  private basePath = '/uploads';
-  private storage: Storage = inject(Storage);
+
+  private imagesService = inject(ImageService);
 
   @Input() label = '';
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 
   async onFileSelected(fileUpload: any) {
-
     const file: File = fileUpload.target.files[0];
-
     if (!file) return
-    const storageRef = ref(this.storage, file.name);
-    const uploadTask = await uploadBytesResumable(storageRef, file);
-    uploadTask.task
-      .then((r) => console.log(r))
-      .catch(error => console.log(error));
 
-
+    try {
+      const response = await this.imagesService.uploadImage(file);
+      console.log(1, response);
+    } catch (err) {
+      console.log(2, err);
+    }
 
   }
 }
