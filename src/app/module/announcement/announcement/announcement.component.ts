@@ -8,15 +8,9 @@ import {ImageService} from '../services/image.service';
   styleUrls: ['./announcement.component.scss']
 })
 export class AnnouncementComponent implements OnInit {
-  imageUrl = '';
+  service = inject(ImageService);
 
-  private imagesService = inject(ImageService);
   ngOnInit() {
-    from(this.imagesService.getImages()).pipe(
-      tap(result => {
-        console.log(result);
-        this.imageUrl = result;
-      })
-    ).subscribe();
+    this.service.getImage().then();
   }
 }

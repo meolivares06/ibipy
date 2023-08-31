@@ -21,8 +21,15 @@
           <p class="text-center">2 TIMOTEO 1:12</p>
         </div>
         <div class="col-lg-5 p-0 overflow-hidden shadow-lg">
-          <img class="img-fluid rounded" src="{{imageUrl}}" alt="" />
-          <app-file-upload label="Clic no boton azu para trocar imagem"></app-file-upload>
+          <div class="example-container">
+            <div class="example-loading-shade" *ngIf="service.loading()">
+              <div class="spinner-border text-primary"><span class="visually-hidden">Loading...</span></div>
+            </div>
+            <div>
+              <img class="img-fluid rounded" src="{{service.imageUrl()}}" alt="" />
+              <app-file-upload label="Click para trocar imagem"></app-file-upload>
+            </div>
+          </div>
         </div>
       </div>
     </div>

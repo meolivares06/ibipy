@@ -1,4 +1,4 @@
-import {inject, Injectable} from '@angular/core';
+import {inject, Injectable, signal} from '@angular/core';
 import {
   getDownloadURL,
   listAll,
@@ -18,28 +18,44 @@ export class ImageService {
   private storage: Storage = inject(Storage);
   private basePath = '/convite_culto';
 
+  imageUrl = signal<string>('');
+  loading = signal<boolean>(false);
+
   constructor() {
     console.log('image service')
   }
 
   async uploadImage(file: any): Promise<UploadResult> {
-    await this.cleanup();
+    this.loading.set(true);
+
+    await this._cleanup();
     const storageRef = ref(this.storage, `${this.basePath}/${file.name}`);
-    return uploadBytes(storageRef, file);
+    const response = await uploadBytes(storageRef, file);
+    await this.getImage();
+
+    this.loading.set(false);
+    return response;
   }
 
-  async getImages(): Promise<string> {
+  async getImage(): Promise<string> {
+    this.loading.set(true);
+
     const imagesRef = ref(this.storage, 'convite_culto');
     const response = await listAll(imagesRef);
 
-    return getDownloadURL(response.items[0]);
+    const url = await getDownloadURL(response.items[0]);
+    this.imageUrl.set(url);
+
+    this.loading.set(false);
+    return url;
   }
 
-  async cleanup() {
+  private async _cleanup() {
     const imagesRef = ref(this.storage, 'convite_culto');
     const response = await listAll(imagesRef);
     const deleting = await deleteObject(response.items[0]);
-    console.log(deleting);
+    console.log('deleting', deleting);
+    return deleting;
   }
 
 }
