@@ -12,11 +12,11 @@ const routes: Routes = [
 
 @NgModule({
   declarations: [
-    NotFoundComponent
   ],
   imports: [
     CommonModule,
-    RouterModule.forChild(routes)
+    RouterModule.forChild(routes),
+    NotFoundComponent
   ]
 })
 export class StaticModule { }

@@ -1,6 +1,6 @@
-<h2>FIle Upload</h2>
+<h4>{{label}}</h4>
 <input type="file" class="file-input" #fileUpload (change)="onFileSelected($event)">
-<div class="file-upload">
+<div class="file-upload bg-body-secondary d-flex justify-content-between">
 
   {{fileName || "No file uploaded yet."}}
 

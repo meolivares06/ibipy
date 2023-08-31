@@ -3,11 +3,11 @@ import { RouterModule, Routes } from '@angular/router';
 import {AnnouncementComponent} from './announcement/announcement.component';
 
 const routes: Routes = [
-  { path: 'cultoDomingoImagen', component: AnnouncementComponent},
+  { path: '', component: AnnouncementComponent},
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]
 })
 export class AnnouncementRoutingModule { }

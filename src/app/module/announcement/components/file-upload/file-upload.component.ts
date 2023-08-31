@@ -1,4 +1,4 @@
-import {Component, inject, OnInit} from '@angular/core';
+import {Component, inject, Input, OnInit} from '@angular/core';
 import {AngularFireStorage} from '@angular/fire/compat/storage';
 import {finalize} from 'rxjs';
 import {ref, Storage, uploadBytesResumable} from '@angular/fire/storage';
@@ -17,6 +17,8 @@ export class AppFileUploadComponent implements OnInit {
   private basePath = '/uploads';
   private storage: Storage = inject(Storage);
 
+  @Input() label = '';
+
   ngOnInit(): void {
   }
 
@@ -27,7 +29,9 @@ export class AppFileUploadComponent implements OnInit {
     if (!file) return
     const storageRef = ref(this.storage, file.name);
     const uploadTask = await uploadBytesResumable(storageRef, file);
-    uploadTask.task.then((r) => console.log(r));
+    uploadTask.task
+      .then((r) => console.log(r))
+      .catch(error => console.log(error));
 
 
 
