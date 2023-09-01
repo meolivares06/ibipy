@@ -3,7 +3,7 @@ export const MENU_OPTIONS: Array<OptionMenu & { childs?: OptionMenu[] }> = [
   {
     label: 'Home',
     leaf: true,
-    route: 'home'
+    route: 'landing'
   },
   {
     label: 'Conheça-Nos',
