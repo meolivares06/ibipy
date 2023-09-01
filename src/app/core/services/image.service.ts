@@ -12,7 +12,7 @@ import {UploadResult} from '@firebase/storage';
 import {ListResult} from '@angular/fire/compat/storage/interfaces';
 
 @Injectable({
-  providedIn: 'platform'
+  providedIn: 'root'
 })
 export class ImageService {
   private storage: Storage = inject(Storage);

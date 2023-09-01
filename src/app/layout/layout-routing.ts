@@ -7,7 +7,7 @@ const routes: Routes = [
     path: '', component: LayoutComponent,
     children: [
       {
-        path: 'home',
+        path: 'landing',
         loadChildren: () => import('../module/landing/landing.module').then(m => m.LandingModule)
       },
       {
@@ -18,7 +18,7 @@ const routes: Routes = [
         path: 'dashboard',
         loadChildren: () => import('../module/dashboard/dashboard.module').then(m => m.DashboardModule)
       },
-      {path: '', redirectTo: '/home', pathMatch: 'full'},
+      {path: '', redirectTo: '/landing', pathMatch: 'full'},
       {path: '**', redirectTo: 'not-found', pathMatch: 'full'}
     ]
   }

@@ -1,9 +1,5 @@
 import {Component, inject, Input, OnInit} from '@angular/core';
-import {AngularFireStorage} from '@angular/fire/compat/storage';
-import {from, tap} from 'rxjs';
-import {ref, Storage, uploadBytesResumable, listAll, getDownloadURL} from '@angular/fire/storage';
-import * as firebase from 'firebase/compat';
-import {ImageService} from '../../services/image.service';
+import {ImageService} from 'src/app/core/services/image.service';
 
 
 @Component({
