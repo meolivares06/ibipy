@@ -1,0 +1,30 @@
+<div class="container-fluid">
+  <div class="container">
+    <h2>Add new Song</h2>
+    <form [formGroup]="form" (ngSubmit)="onSubmit()">
+      <div class="mb-3">
+        <label for="title" class="form-label">Titulo de la cancion</label>
+        <input type="text" class="form-control" id="title" aria-describedby="titleHelp" formControlName="title">
+        <div id="titleHelp" class="form-text">We'll never share your email with anyone else.</div>
+      </div>
+      <div class="mb-3">
+        <label for="author" class="form-label">Autor de la cancion</label>
+        <input type="text" class="form-control" id="author" aria-describedby="authorHelp" formControlName="author">
+        <div id="authorHelp" class="form-text">We'll never share your email with anyone else.</div>
+      </div>
+      <div class="mb-3">
+        <label for="youtubeLink" class="form-label">Link en Youtube de la cancion</label>
+        <input type="text" class="form-control" id="youtubeLink" aria-describedby="youtubeLinkHelp" formControlName="youtubeLink">
+        <div id="youtubeLinkHelp" class="form-text">We'll never share your email with anyone else.</div>
+      </div>
+      <div class="mb-3">
+        <label for="letra" class="form-label">Letra de la cancion</label>
+        <textarea class="form-control" id="letra" aria-describedby="letraHelp" formControlName="letter"></textarea>
+        <div id="letraHelp" class="form-text">We'll never share your email with anyone else.</div>
+      </div>
+
+      <button type="submit" class="btn btn-primary">Guardar</button>
+    </form>
+
+  </div>
+</div>
