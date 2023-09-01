@@ -14,3 +14,8 @@ body, html {
 .cursor-pointer {
   cursor: pointer;
 }
+
+.form-group.required .form-label:after {
+  content:"*";
+  color:red;
+}

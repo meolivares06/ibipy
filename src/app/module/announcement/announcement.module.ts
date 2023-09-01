@@ -4,6 +4,7 @@ import {AnnouncementRoutingModule} from './announcement-routing.module';
 import { AnnouncementComponent } from './announcement/announcement.component';
 import {HttpClientModule} from '@angular/common/http';
 import {AppFileUploadComponent} from './components/file-upload/file-upload.component';
+import {ReactiveFormsModule} from '@angular/forms';
 
 
 
@@ -12,10 +13,11 @@ import {AppFileUploadComponent} from './components/file-upload/file-upload.compo
     AppFileUploadComponent,
     AnnouncementComponent
   ],
-  imports: [
-    CommonModule,
-    AnnouncementRoutingModule,
-    HttpClientModule
-  ]
+    imports: [
+        CommonModule,
+        AnnouncementRoutingModule,
+        HttpClientModule,
+        ReactiveFormsModule
+    ]
 })
 export class AnnouncementModule { }

@@ -12,14 +12,22 @@ export class AnnouncementComponent implements OnInit {
 
   private readonly _formBuilder = inject(NonNullableFormBuilder);
   formText!: FormGroup;
+
   constructor() {
     this.formText = this._formBuilder.group({
-        title: new FormControl('', Validators.required),
-        description: new FormControl('', Validators.required),
-        versicle: new FormControl('', Validators.required),
+      title: new FormControl('', Validators.required),
+      description: new FormControl('', Validators.required),
+      versicle: new FormControl('', Validators.required),
+      author: new FormControl('', Validators.required),
     });
   }
+
   ngOnInit() {
     this.service.getImage().then();
+  }
+
+  onSubmit() {
+    const payLoad = JSON.stringify(this.formText.getRawValue());
+    console.log(payLoad);
   }
 }
