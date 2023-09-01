@@ -27,7 +27,7 @@
             </div>
             <div>
               <img class="img-fluid rounded" src="{{service.imageUrl()}}" alt="" />
-              <app-file-upload label="Click para trocar imagem"></app-file-upload>
+              <app-file-upload  *ngIf="!service.loading()" label="Click para trocar imagem"></app-file-upload>
             </div>
           </div>
         </div>
