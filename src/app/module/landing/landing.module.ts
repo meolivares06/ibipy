@@ -5,6 +5,7 @@ import {LandingComponent} from './components/landing/landing.component';
 import HeroComponent from './components/hero/hero.component';
 import PageAboutUsComponent from './pages/about-us/about-us.component';
 import PageFeComponent from './pages/fe/fe.component';
+import {PipesModule} from '../../core/pipes/pipes.module';
 
 
 @NgModule({
@@ -18,7 +19,8 @@ import PageFeComponent from './pages/fe/fe.component';
   ],
   imports: [
     CommonModule,
-    LandingRouting
+    LandingRouting,
+    PipesModule
   ]
 })
 export class LandingModule { }
