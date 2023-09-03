@@ -27,6 +27,5 @@ export class AppFileUploadComponent implements OnInit {
     } catch (err) {
       console.log(2, err);
     }
-
   }
 }
