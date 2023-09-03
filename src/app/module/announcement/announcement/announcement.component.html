@@ -2,25 +2,52 @@
   <div class="container my-5">
     <div class="row">
       <div class="col-12">
-        <p class="lead">Anuncios</p>
+        <p class="lead">Crie um anúncio para o culto dominical</p>
+        <p>(exibindo informações da última mensagem)</p>
       </div>
     </div>
   </div>
   <div class="container-fluid">
     <div class="container my-5">
       <div class="row p-4 align-items-center rounded border shadow-lg">
-        <div class="col-lg-7 p-3 p-lg-5 pt-lg-3">
-          <h1 class="display-4 fw-bold lh-1 text-body-emphasis">
-            EU SEI EM QUE TENHO CRIDO.
-          </h1>
-         <div>
-           <p class="lead">
-             Convidamos você para nosso culto de domingo para adorar nosso Deus e
-             aprender com Sua Palavra:
-           </p>
-         </div>
-          <p class="text-center text-6xl fw-bold">2 TIMOTEO 1:12</p>
-          <p class="text-center">Pastor Gerson Machado</p>
+        <div class="col-lg-7 p-3 p-lg-5 pt-lg-3 example-container" >
+          <div class="example-loading-shade" *ngIf="messageService.loading$()">
+            <div class="spinner-border text-primary"><span class="visually-hidden">Loading...</span></div>
+          </div>
+            <form (ngSubmit)="onSubmit()" [formGroup]="formText" class="needs-validation">
+              <div class="mb-3 form-group required">
+                <label for="title" class="form-label">Titulo</label>
+                <input type="text" class="form-control" id="title" aria-describedby="titleHelp" formControlName="title" required>
+                <div id="titleHelp" class="form-text">Titulo da mensagem.</div>
+              </div>
+              <div class="mb-3 form-group required">
+                <label for="description" class="form-label">Description</label>
+                <textarea class="form-control" id="description" rows="3" aria-describedby="descriptionHelp" formControlName="description" required></textarea>
+                <div id="descriptionHelp" class="form-text">Breve descrição tópico ou chamada.</div>
+              </div>
+              <div class="mb-3 form-group required">
+                <label for="versicle" class="form-label">Verso</label>
+                <input type="text" class="form-control" id="versicle" aria-describedby="versicleHelp" formControlName="versicle" required>
+                <div id="versicleHelp" class="form-text">Verso principal.</div>
+              </div>
+              <div class="mb-3 form-group required">
+                <label for="author" class="form-label">Autor</label>
+                <input type="text" class="form-control" id="author" aria-describedby="authorHelp" formControlName="author" required>
+                <div id="authorHelp" class="form-text">Nome do pregador.</div>
+              </div>
+              <button type="submit" class="btn btn-primary" [disabled]="formText.invalid">Guardar</button>
+            </form>
+            <!--<h1 class="display-4 fw-bold lh-1 text-body-emphasis">
+              EU SEI EM QUE TENHO CRIDO.
+            </h1>
+            <div>
+              <p class="lead">
+                Convidamos você para nosso culto de domingo para adorar nosso Deus e
+                aprender com Sua Palavra:
+              </p>
+            </div>
+            <p class="text-center text-6xl fw-bold">2 TIMOTEO 1:12</p>
+            <p class="text-center">Pastor Gerson Machado</p>-->
         </div>
         <div class="col-lg-5 p-0 overflow-hidden shadow-lg">
           <div class="example-container">
@@ -28,7 +55,7 @@
               <div class="spinner-border text-primary"><span class="visually-hidden">Loading...</span></div>
             </div>
             <div>
-              <img class="img-fluid rounded" src="{{service.imageUrl()}}" alt="" />
+              <img class="img-fluid rounded mb-2" src="{{service.imageUrl()}}" alt="" />
               <app-file-upload  *ngIf="!service.loading()" label="Click para trocar imagem"></app-file-upload>
             </div>
           </div>
