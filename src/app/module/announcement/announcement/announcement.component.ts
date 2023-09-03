@@ -13,6 +13,7 @@ import {CultoInformation} from '../../../core/services/message-http.service';
 export class AnnouncementComponent implements OnInit {
   service = inject(ImageService);
   messageService = inject(MessageService);
+  imageService = inject(ImageService);
 
   private readonly _formBuilder = inject(NonNullableFormBuilder);
   formText!: FormGroup;
@@ -27,9 +28,9 @@ export class AnnouncementComponent implements OnInit {
 
     this.messageService.message$.pipe(
       map((lastInformation) => {
-        if(lastInformation.length > 0) {
+        if (lastInformation.length > 0) {
           return lastInformation.reverse();
-        }else return lastInformation;
+        } else return lastInformation;
       }),
       tap(lastInformation => {
         this.formText.patchValue({
@@ -59,6 +60,18 @@ export class AnnouncementComponent implements OnInit {
       this.messageService.add(data)
     } catch (err) {
       console.log(err);
+    }
+  }
+
+  async onPastedFile(files: File[]) {
+    console.log(files[0]);
+    if (!files[0]) return
+
+    try {
+      const response = await this.imageService.uploadImage(files[0]);
+      console.log(1, response);
+    } catch (err) {
+      console.log(2, err);
     }
   }
 }

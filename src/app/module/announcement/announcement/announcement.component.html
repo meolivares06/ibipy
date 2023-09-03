@@ -55,7 +55,8 @@
               <div class="spinner-border text-primary"><span class="visually-hidden">Loading...</span></div>
             </div>
             <div>
-              <img class="img-fluid rounded mb-2" src="{{service.imageUrl()}}" alt="" />
+              <img class="img-fluid rounded mb-2" src="{{service.imageUrl()}}" alt="Imagem convite do culto"
+                   dropFiles (pastedFiles)="onPastedFile($event)"/>
               <app-file-upload  *ngIf="!service.loading()" label="Click para trocar imagem"></app-file-upload>
             </div>
           </div>

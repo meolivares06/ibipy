@@ -6,6 +6,7 @@ import {HttpClientModule} from '@angular/common/http';
 import {AppFileUploadComponent} from './components/file-upload/file-upload.component';
 import {ReactiveFormsModule} from '@angular/forms';
 import {PipesModule} from '../../core/pipes/pipes.module';
+import {DirectivesModule} from '../../core/directives/directives.module';
 
 
 
@@ -19,7 +20,8 @@ import {PipesModule} from '../../core/pipes/pipes.module';
     AnnouncementRoutingModule,
     HttpClientModule,
     ReactiveFormsModule,
-    PipesModule
+    PipesModule,
+    DirectivesModule
   ]
 })
 export class AnnouncementModule { }
