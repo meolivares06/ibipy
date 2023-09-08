@@ -14,7 +14,7 @@
           <div class="example-loading-shade" *ngIf="messageService.loading$()">
             <div class="spinner-border text-primary"><span class="visually-hidden">Loading...</span></div>
           </div>
-            <form (ngSubmit)="onSubmit()" [formGroup]="formText" class="needs-validation">
+          <form (ngSubmit)="onSubmit()" [formGroup]="formText" class="needs-validation">
               <div class="mb-3 form-group required">
                 <label for="title" class="form-label">Titulo</label>
                 <input type="text" class="form-control" id="title" aria-describedby="titleHelp" formControlName="title" required>

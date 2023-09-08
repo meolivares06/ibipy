@@ -3,7 +3,7 @@ import {ImageService} from 'src/app/core/services/image.service';
 import {FormControl, FormGroup, NonNullableFormBuilder, Validators} from '@angular/forms';
 import {MessageService} from '../../../core/services/message.service';
 import {map, tap} from 'rxjs';
-import {CultoInformation} from '../../../core/services/message-http.service';
+import {CultoInformation} from '../../../core/model';
 
 @Component({
   selector: 'app-announcement',
@@ -26,7 +26,7 @@ export class AnnouncementComponent implements OnInit {
       author: new FormControl('', Validators.required),
     });
 
-    this.messageService.message$.pipe(
+    this.messageService.list$.pipe(
       map((lastInformation) => {
         if (lastInformation.length > 0) {
           return lastInformation.reverse();

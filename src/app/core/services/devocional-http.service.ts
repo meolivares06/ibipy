@@ -2,18 +2,24 @@ import {inject, Injectable} from '@angular/core';
 import {addDoc, collection, collectionData, Firestore} from '@angular/fire/firestore';
 import {DocumentReference} from '@firebase/firestore';
 import {catchError, map, Observable, of} from 'rxjs';
-import {CultoInformation} from '../model';
 
+export interface CultoInformation {
+  title: string;
+  description: string;
+  versicle: string;
+  author: string;
+  created: string;
+}
 @Injectable({
   providedIn: 'root'
 })
-export class MessageHttpService {
+export class DevocionalHttpService {
   firestore: Firestore = inject(Firestore);
-  private basePath = '/convite_culto_text';
+  private basePath = '/devocional';
 
 
   constructor() {
-    console.log('message http service')
+    console.log('Devocional http service')
   }
 
   add(information: CultoInformation): Promise<DocumentReference<any>> {
