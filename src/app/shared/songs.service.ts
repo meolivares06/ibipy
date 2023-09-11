@@ -11,17 +11,17 @@ export class SongsService {
 
   constructor(private firestore: Firestore) { }
 
-  addSong(song: Song): Promise<DocumentReference<any>> {
+  add(song: Song): Promise<DocumentReference<any>> {
     const songRef = collection(this.firestore, 'songs');
     return addDoc(songRef, song);
   }
 
-  getSongs(): Observable<Song[]> {
+  loadAll(): Observable<Song[]> {
     const songRef = collection(this.firestore, 'songs');
     return collectionData(songRef, {idField: 'id'}) as Observable<Song[]>;
   }
 
-  deleteSong(song: Song) {
+  delete(song: Song) {
     const songRef = doc(this.firestore, `songs/${song.id}`);
     return deleteDoc(songRef)
   }

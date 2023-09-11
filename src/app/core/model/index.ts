@@ -4,4 +4,5 @@ export interface CultoInformation {
   versicle: string;
   author: string;
   created: string;
+  id?: string;
 }

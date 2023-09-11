@@ -1,31 +1,46 @@
-<p>crud works!</p>
-<header>
-  <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#createModal">Agregar</button>
 
-</header>
-<table class="table">
-  <thead>
-  <tr>
-    <th scope="col">Versiculo</th>
-    <th scope="col">Titulo</th>
-    <th scope="col">Descripção</th>
-    <th scope="col">Author</th>
-  </tr>
-  </thead>
-  <tbody>
-  <tr *ngFor="let item of devocionalService.list$ | async">
-    <th scope="row">1</th>
-    <td>{{item.versicle}}</td>
-    <td>{{item.title}}</td>
-    <td>{{item.author}}</td>
-  </tr>
-  <!--<tr>
-    <th scope="row" colspan="3">Sin datos</th>
-  </tr>-->
-  </tbody>
-</table>
+<div class="container-fluid">
+  <div class="container my-5">
+    <div class="row">
+        <div class="col-12">
 
+          <!--<pre>{{devocionalService.list$ | async | json}}</pre>-->
+          <header>
+            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#createModal">Agregar</button>
 
+          </header>
+          <table class="table">
+            <thead>
+            <tr>
+              <th scope="col">Versiculo</th>
+              <th scope="col">Titulo</th>
+              <th scope="col">Descripção</th>
+              <th scope="col">Author</th>
+              <th scope="col">Açoes</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let item of devocionalService.list$ | async">
+              <th scope="row">1</th>
+              <td>{{item.versicle}}</td>
+              <td>{{item.title}}</td>
+              <td>{{item.author}}</td>
+              <td>
+                <button type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#createModal" (click)="edit(item)">Editar</button>
+                <button type="button" class="btn btn-danger" (click)="delete(item)">Eliminar</button>
+
+              </td>
+            </tr>
+            <!--<tr>
+              <th scope="row" colspan="3">Sin datos</th>
+            </tr>-->
+            </tbody>
+          </table>
+
+        </div>
+    </div>
+  </div>
+</div>
 <div class="modal fade" tabindex="-1" id="createModal" aria-labelledby="Create Devocional" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content example-container">
@@ -62,7 +77,8 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button type="submit" (click)="onSubmit()"  class="btn btn-primary" [disabled]="formText.invalid">Save changes</button>
+        <button type="submit" (click)="onSubmit()"  class="btn btn-primary"
+                [disabled]="formText.invalid || devocionalService.loading$()">Save changes</button>
       </div>
     </div>
   </div>

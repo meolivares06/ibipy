@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
-import {SongsService} from '../../shared/songs.service';
+import {SongsService} from '../../../shared/songs.service';
 
 @Component({
   selector: 'app-song-form',
@@ -26,7 +26,7 @@ export class SongFormComponent implements OnInit {
 
   async onSubmit() {
     console.log(this.form.value);
-    const response = await this.songsService.addSong(this.form.value);
+    const response = await this.songsService.add(this.form.value);
     console.log(response);
   }
 

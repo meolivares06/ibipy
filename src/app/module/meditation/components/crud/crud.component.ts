@@ -30,9 +30,40 @@ export class CrudComponent {
       created: new Date()
     }
     try {
-      this.devocionalService.add(data)
+      if(this.devocionalService.selected$()) {
+        this.devocionalService.update({...data, id: this.devocionalService.selected$()?.id})
+          .then(() => {
+            console.log('actualizado correctamente');
+          })
+          .catch(err => {
+            console.log(err);
+          });
+      }else {
+        this.devocionalService.add(data).then(() => {
+          console.log('actualizado correctamente');
+        })
+          .catch(err => {
+            console.log(err);
+          });
+      }
     } catch (err) {
       console.log(err);
     }
+  }
+
+  edit(item: CultoInformation) {
+    this.devocionalService.select(item);
+    this.formText.patchValue(item);
+  }
+
+  delete(item: CultoInformation) {
+    this.devocionalService.select(item);
+    this.devocionalService.delete(item)
+      .then(() => {
+        this.devocionalService.select(undefined);
+      })
+      .catch(err => {
+        console.log(err);
+      });
   }
 }
