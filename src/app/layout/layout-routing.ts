@@ -22,6 +22,10 @@ const routes: Routes = [
         path: 'devocional',
         loadChildren: () => import('../module/meditation/meditation.module').then(m => m.MeditationModule)
       },
+      {
+        path: 'songs',
+        loadChildren: () => import('../module/songs/songs.module').then(m => m.SongsModule)
+      },
       {path: '', redirectTo: '/landing', pathMatch: 'full'},
       {path: '**', redirectTo: 'not-found', pathMatch: 'full'}
     ]

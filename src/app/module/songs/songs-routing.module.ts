@@ -4,12 +4,12 @@ import {SongFormComponent} from './song-form/song-form.component';
 import {SongsListComponent} from './songs-list/songs-list.component';
 
 const routes: Routes = [
-  { path: 'songsAdd', component: SongFormComponent},
-  { path: 'songsList', component: SongsListComponent},
+  { path: 'add', component: SongFormComponent},
+  { path: '', component: SongsListComponent},
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]
 })
 export class SongsRoutingModule { }
