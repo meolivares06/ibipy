@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
-import {SongsService} from '../../shared/songs.service';
 import {Observable} from 'rxjs';
-import {Song} from '../../shared/data';
+import {SongsService} from '../../../shared/songs.service';
+import {Song} from '../../../shared/data';
 
 @Component({
   selector: 'app-songs-list',
@@ -15,11 +15,11 @@ export class SongsListComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.songs$ = this.songsService.getSongs();
+    this.songs$ = this.songsService.loadAll();
   }
 
   async onDelete(song: Song) {
-    const response = await this.songsService.deleteSong(song);
+    const response = await this.songsService.delete(song);
     console.log(response);
   }
 }

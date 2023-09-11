@@ -1,0 +1,85 @@
+
+<div class="container-fluid">
+  <div class="container my-5">
+    <div class="row">
+        <div class="col-12">
+
+          <!--<pre>{{devocionalService.list$ | async | json}}</pre>-->
+          <header>
+            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#createModal">Agregar</button>
+
+          </header>
+          <table class="table">
+            <thead>
+            <tr>
+              <th scope="col">Versiculo</th>
+              <th scope="col">Titulo</th>
+              <th scope="col">Descripção</th>
+              <th scope="col">Author</th>
+              <th scope="col">Açoes</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let item of devocionalService.list$ | async">
+              <th scope="row">1</th>
+              <td>{{item.versicle}}</td>
+              <td>{{item.title}}</td>
+              <td>{{item.author}}</td>
+              <td>
+                <button type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#createModal" (click)="edit(item)">Editar</button>
+                <button type="button" class="btn btn-danger" (click)="delete(item)">Eliminar</button>
+
+              </td>
+            </tr>
+            <!--<tr>
+              <th scope="row" colspan="3">Sin datos</th>
+            </tr>-->
+            </tbody>
+          </table>
+
+        </div>
+    </div>
+  </div>
+</div>
+<div class="modal fade" tabindex="-1" id="createModal" aria-labelledby="Create Devocional" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content example-container">
+      <div class="modal-header">
+        <h1 class="modal-title">Agregar refleção</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div class="example-loading-shade" *ngIf="devocionalService.loading$()">
+          <div class="spinner-border text-primary"><span class="visually-hidden">Loading...</span></div>
+        </div>
+        <form (ngSubmit)="onSubmit()" [formGroup]="formText" class="needs-validation">
+          <div class="mb-3 form-group required">
+            <label for="title" class="form-label">Titulo</label>
+            <input type="text" class="form-control" id="title" aria-describedby="titleHelp" formControlName="title" required>
+            <div id="titleHelp" class="form-text">Titulo da mensagem.</div>
+          </div>
+          <div class="mb-3 form-group required">
+            <label for="description" class="form-label">Description</label>
+            <textarea class="form-control" id="description" rows="3" aria-describedby="descriptionHelp" formControlName="description" required></textarea>
+            <div id="descriptionHelp" class="form-text">Breve descrição tópico ou chamada.</div>
+          </div>
+          <div class="mb-3 form-group required">
+            <label for="versicle" class="form-label">Verso</label>
+            <input type="text" class="form-control" id="versicle" aria-describedby="versicleHelp" formControlName="versicle" required>
+            <div id="versicleHelp" class="form-text">Verso principal.</div>
+          </div>
+          <div class="mb-3 form-group required">
+            <label for="author" class="form-label">Autor</label>
+            <input type="text" class="form-control" id="author" aria-describedby="authorHelp" formControlName="author" required>
+            <div id="authorHelp" class="form-text">Nome do pregador.</div>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="submit" (click)="onSubmit()"  class="btn btn-primary"
+                [disabled]="formText.invalid || devocionalService.loading$()">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>

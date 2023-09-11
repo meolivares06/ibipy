@@ -1,16 +1,19 @@
 import {inject, Injectable, signal} from '@angular/core';
-import {CultoInformation, MessageHttpService} from './message-http.service';
-import {Observable} from 'rxjs';
+import {MessageHttpService} from './message-http.service';
+import {Observable, of} from 'rxjs';
+import {CultoInformation} from '../model';
 
 @Injectable({
   providedIn: 'root'
 })
 export class MessageService {
   messageHttpService = inject(MessageHttpService);
-  message$: Observable<CultoInformation[]> = this.messageHttpService.loadAll();
+  list$: Observable<CultoInformation[]> = of([]);
 
   loading$ = signal<boolean>(false);
-  constructor() {}
+  constructor() {
+    this.list$ = this.messageHttpService.loadAll();
+  }
 
   add(information: CultoInformation): void {
     this.loading$.set(true);

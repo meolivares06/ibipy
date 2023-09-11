@@ -55,7 +55,7 @@
   <li class="nav-item dropdown">
     <a
       class="nav-link dropdown-toggle"
-      routerLink="{{option.route ? option.route : '#'}}"
+      routerLink="{{option.route ? option.route : ''}}"
       role="button"
       data-bs-toggle="dropdown"
       aria-expanded="false"
@@ -64,7 +64,7 @@
     </a>
     <ul class="dropdown-menu">
       <li *ngFor="let subOption of option.childs">
-        <a class="dropdown-item" routerLink="/home#{{ subOption.linkId }}">{{
+        <a class="dropdown-item" [routerLink]="['/landing#', subOption.linkId ]">{{
           subOption.label
         }}</a>
       </li>

@@ -18,6 +18,10 @@ const routes: Routes = [
         path: 'dashboard',
         loadChildren: () => import('../module/dashboard/dashboard.module').then(m => m.DashboardModule)
       },
+      {
+        path: 'devocional',
+        loadChildren: () => import('../module/meditation/meditation.module').then(m => m.MeditationModule)
+      },
       {path: '', redirectTo: '/landing', pathMatch: 'full'},
       {path: '**', redirectTo: 'not-found', pathMatch: 'full'}
     ]

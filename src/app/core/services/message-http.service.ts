@@ -2,14 +2,8 @@ import {inject, Injectable} from '@angular/core';
 import {addDoc, collection, collectionData, Firestore} from '@angular/fire/firestore';
 import {DocumentReference} from '@firebase/firestore';
 import {catchError, map, Observable, of} from 'rxjs';
+import {CultoInformation} from '../model';
 
-export interface CultoInformation {
-  title: string;
-  description: string;
-  versicle: string;
-  author: string;
-  created: string;
-}
 @Injectable({
   providedIn: 'root'
 })
