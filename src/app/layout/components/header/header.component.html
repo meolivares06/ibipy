@@ -64,7 +64,7 @@
     </a>
     <ul class="dropdown-menu">
       <li *ngFor="let subOption of option.childs">
-        <a class="dropdown-item" [routerLink]="['/landing#', subOption.linkId ]">{{
+        <a class="dropdown-item" routerLink="{{subOption.fragmentParent}}" [fragment]="subOption.linkId">{{
           subOption.label
         }}</a>
       </li>
