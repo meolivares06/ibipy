@@ -13,7 +13,7 @@
         <p class="text-center">{{(messageService.list$ | async | nullAsArray | last)?.author}}</p>
       </div>
       <div class="col-lg-5 p-0 overflow-hidden shadow-lg">
-        <img class="img-fluid rounded" src="{{imageService.imageUrl()}}" alt="" />
+        <img class="rounded" style="aspect-ratio: 1 / 1;width: 100%" src="{{imageService.imageUrl()}}" alt="" />
       </div>
     </div>
   </div>
