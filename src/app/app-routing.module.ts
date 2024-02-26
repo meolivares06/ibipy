@@ -14,6 +14,10 @@ const routes: Routes = [
     path: '',
     loadChildren: () => import('./layout/layout.module').then(m => m.LayoutModule),
   },
+  {
+    path: 'admin',
+    loadChildren: () => import('./module/admin/admin.module').then(m => m.AdminModule),
+  },
   {path: '**', redirectTo: '/static/not-found', pathMatch: 'full'}
 ];
 

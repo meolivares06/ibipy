@@ -24,8 +24,13 @@
               <td>{{item.title}}</td>
               <td>{{item.author}}</td>
               <td>
-                <button type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#createModal" (click)="edit(item)">Editar</button>
-                <button type="button" class="btn btn-danger" (click)="delete(item)">Eliminar</button>
+                <button type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#createModal"
+                        (click)="edit(item)
+                      "data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Tooltip on top">
+                      <i class="bi bi-pencil-square" tooltip></i>
+                </button>
+                <button type="button" class="btn btn-danger" (click)="delete(item)"><i class="bi bi-trash-fill"></i>
+                </button>
 
               </td>
             </tr>
@@ -39,6 +44,19 @@
     </div>
   </div>
 </div>
+
+<button type="button" class="btn btn-secondary" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Tooltip on top">
+  Tooltip on top
+</button>
+<button type="button" class="btn btn-secondary" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-title="Tooltip on right">
+  Tooltip on right
+</button>
+<button type="button" class="btn btn-secondary" data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-title="Tooltip on bottom">
+  Tooltip on bottom
+</button>
+<button type="button" class="btn btn-secondary" data-bs-toggle="tooltip" data-bs-placement="left" data-bs-title="Tooltip on left">
+  Tooltip on left
+</button>
 <div class="modal fade" tabindex="-1" id="createModal" aria-labelledby="Create Devocional" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content example-container">

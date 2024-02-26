@@ -15,6 +15,9 @@ import MapaComponent from './components/mapa/mapa.component';
     FooterComponent,
     MapaComponent
   ],
+  exports: [
+    FooterComponent
+  ],
   imports: [
     CommonModule,
     LayoutRouting

@@ -10,22 +10,6 @@ const routes: Routes = [
         path: 'landing',
         loadChildren: () => import('../module/landing/landing.module').then(m => m.LandingModule)
       },
-      {
-        path: 'news',
-        loadChildren: () => import('../module/announcement/announcement.module').then(m => m.AnnouncementModule)
-      },
-      {
-        path: 'dashboard',
-        loadChildren: () => import('../module/dashboard/dashboard.module').then(m => m.DashboardModule)
-      },
-      {
-        path: 'devocional',
-        loadChildren: () => import('../module/meditation/meditation.module').then(m => m.MeditationModule)
-      },
-      {
-        path: 'songs',
-        loadChildren: () => import('../module/songs/songs.module').then(m => m.SongsModule)
-      },
       {path: '', redirectTo: '/landing', pathMatch: 'full'},
       {path: '**', redirectTo: 'not-found', pathMatch: 'full'}
     ]
