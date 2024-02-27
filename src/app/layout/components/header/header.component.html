@@ -25,21 +25,24 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-            <ng-container *ngFor="let optionMenu of optionsMenu">
-              <ng-template
-                *ngIf="optionMenu.leaf"
-                [ngTemplateOutlet]="leafItem"
-                [ngTemplateOutletContext]="{ $implicit: optionMenu }"
-              ></ng-template>
-              <ng-template
-                *ngIf="!optionMenu.leaf"
-                [ngTemplateOutlet]="parentItem"
-                [ngTemplateOutletContext]="{ $implicit: optionMenu }"
-              ></ng-template>
-            </ng-container>
+            @for(optionMenu of optionsMenu; track optionMenu.linkId) {
+              @if(optionMenu.leaf) {
+                <ng-template
+                  [ngTemplateOutlet]="leafItem"
+                  [ngTemplateOutletContext]="{ $implicit: optionMenu }">
+                </ng-template>
+              }
+              @else {
+                <ng-template
+                  [ngTemplateOutlet]="parentItem"
+                  [ngTemplateOutletContext]="{ $implicit: optionMenu }"
+                ></ng-template>
+              }
+            }
           </ul>
-           <button *ngIf="authService.isAuthenticatedUser()" class="btn btn-outline-success"
-                   (click)="onLogout()">Sair</button>
+          @if(authService.isAuthenticatedUser()) {
+           <button class="btn btn-outline-success" (click)="onLogout()">Sair</button>
+          }
 
         </div>
       </div>
@@ -63,11 +66,13 @@
       {{ option.label }}
     </a>
     <ul class="dropdown-menu">
-      <li *ngFor="let subOption of option.childs">
-        <a class="dropdown-item" routerLink="{{subOption.fragmentParent}}" [fragment]="subOption.linkId">{{
-          subOption.label
-        }}</a>
-      </li>
+      @for(subOption of option.childs | nullAsArray; track subOption) {
+        <li>
+          <a class="dropdown-item" routerLink="{{subOption.fragmentParent}}" [fragment]="subOption.linkId">{{
+            subOption.label
+          }}</a>
+        </li>
+      }
     </ul>
   </li>
 </ng-template>
