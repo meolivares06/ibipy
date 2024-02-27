@@ -58,10 +58,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "ibipy:build:production"
+              "buildTarget": "ibipy:build:production"
             },
             "development": {
-              "browserTarget": "ibipy:build:development"
+              "buildTarget": "ibipy:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -69,7 +69,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "ibipy:build"
+            "buildTarget": "ibipy:build"
           }
         },
         "test": {
