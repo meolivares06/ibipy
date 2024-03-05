@@ -6,6 +6,7 @@ import HeroComponent from './components/hero/hero.component';
 import PageAboutUsComponent from './pages/about-us/about-us.component';
 import PageFeComponent from './pages/fe/fe.component';
 import {PipesModule} from '../../core/pipes/pipes.module';
+import VideoComponent from "./components/video/video.component";
 
 
 @NgModule({
@@ -17,10 +18,11 @@ import {PipesModule} from '../../core/pipes/pipes.module';
   ],
   exports: [
   ],
-  imports: [
-    CommonModule,
-    LandingRouting,
-    PipesModule
-  ]
+    imports: [
+        CommonModule,
+        LandingRouting,
+        PipesModule,
+        VideoComponent
+    ]
 })
 export class LandingModule { }
