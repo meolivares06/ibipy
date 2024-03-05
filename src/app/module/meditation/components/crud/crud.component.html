@@ -18,25 +18,27 @@
             </tr>
             </thead>
             <tbody>
-            <tr *ngFor="let item of devocionalService.list$ | async">
-              <th scope="row">1</th>
-              <td>{{item.versicle}}</td>
-              <td>{{item.title}}</td>
-              <td>{{item.author}}</td>
-              <td>
-                <button type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#createModal"
-                        (click)="edit(item)
-                      "data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Tooltip on top">
-                      <i class="bi bi-pencil-square" tooltip></i>
-                </button>
-                <button type="button" class="btn btn-danger" (click)="delete(item)"><i class="bi bi-trash-fill"></i>
-                </button>
+            @for(item of devocionalService.list$ | async; track item) {
+              <tr>
+                <th scope="row">1</th>
+                <td>{{item.versicle}}</td>
+                <td>{{item.title}}</td>
+                <td>{{item.author}}</td>
+                <td>
+                  <button type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#createModal"
+                          (click)="edit(item) "data-bs-toggle="tooltip" data-bs-placement="top"
+                          data-bs-title="Tooltip on top">
+                        <i class="bi bi-pencil-square" tooltip></i>
+                  </button>
+                  <button type="button" class="btn btn-danger" (click)="delete(item)"><i class="bi bi-trash-fill"></i>
+                  </button>
 
-              </td>
-            </tr>
-            <!--<tr>
-              <th scope="row" colspan="3">Sin datos</th>
-            </tr>-->
+                </td>
+              </tr>
+            }
+              <!--<tr>
+                <th scope="row" colspan="3">Sin datos</th>
+              </tr>-->
             </tbody>
           </table>
 
@@ -65,9 +67,11 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        <div class="example-loading-shade" *ngIf="devocionalService.loading$()">
-          <div class="spinner-border text-primary"><span class="visually-hidden">Loading...</span></div>
-        </div>
+        @if(devocionalService.loading$()) {
+          <div class="example-loading-shade">
+            <div class="spinner-border text-primary"><span class="visually-hidden">Loading...</span></div>
+          </div>
+        }
         <form (ngSubmit)="onSubmit()" [formGroup]="formText" class="needs-validation">
           <div class="mb-3 form-group required">
             <label for="title" class="form-label">Titulo</label>

@@ -1,5 +1,5 @@
 .hero-image {
-  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("/assets/hero.png");
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("/assets/hero.jpg");
   height: 100%;
   background-position: center;
   background-repeat: no-repeat;
@@ -23,7 +23,7 @@
 
 .hero-colours {
 	height: 100%;
-	background: linear-gradient(45deg, rgba(255,175,189,.7), rgba(100,216,243,.7), rgba(234,236,198,.7), rgba(245,146,176,.7), rgba(52,219,216,.7)) 0 0 / 1000% no-repeat, url(/assets/hero.png) center / cover no-repeat;
+	background: linear-gradient(45deg, rgba(255,175,189,.7), rgba(100,216,243,.7), rgba(234,236,198,.7), rgba(245,146,176,.7), rgba(52,219,216,.7)) 0 0 / 1000% no-repeat, url(/assets/hero.jpg) center / cover no-repeat;
 	-webkit-animation: gradientAnimation 40s ease infinite;
 	animation: gradientAnimation 40s ease infinite;
   position: relative;
@@ -46,6 +46,6 @@
 
 @media (min-width: 576px) {
   .hero-container {
-    height: 50vh;
+    height: 60vh;
   }
  }
