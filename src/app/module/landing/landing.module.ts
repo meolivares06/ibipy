@@ -7,22 +7,25 @@ import PageAboutUsComponent from './pages/about-us/about-us.component';
 import PageFeComponent from './pages/fe/fe.component';
 import {PipesModule} from '../../core/pipes/pipes.module';
 import VideoComponent from "./components/video/video.component";
+import {WelcomeComponent} from "./components/welcome/welcome.component";
+import {NewsComponent} from "./components/news/news.component";
 
 
 @NgModule({
   declarations: [
-    HeroComponent,
     PageAboutUsComponent,
     PageFeComponent,
     LandingComponent
   ],
   exports: [
   ],
-    imports: [
-        CommonModule,
-        LandingRouting,
-        PipesModule,
-        VideoComponent
-    ]
+  imports: [
+    CommonModule,
+    LandingRouting,
+    VideoComponent,
+    WelcomeComponent,
+    HeroComponent,
+    NewsComponent
+  ]
 })
 export class LandingModule { }

@@ -25,7 +25,11 @@
             "inlineStyleLanguage": "scss",
             "assets": ["src/favicon.ico", "src/assets"],
             "styles": ["src/styles.scss"],
-            "scripts": ["src/assets/scripts.js"]
+            "scripts": [
+              "node_modules/@popperjs/core/dist/esm/popper.js",
+              "node_modules/bootstrap/dist/js/bootstrap.min.js",
+              "src/assets/scripts.js"
+            ]
           },
           "configurations": {
             "production": {
