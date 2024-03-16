@@ -1,42 +1,6 @@
-<app-hero></app-hero>
-<div class="container-fluid">
-  <div class="container my-5 rounded">
-    <div class="row p-4 align-items-center border">
-      <div class="col-lg-7 p-3 p-lg-5 pt-lg-3">
-        <p class="text-bg-warning font fw-bold">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Mensagem da semana </p>
-        <h1 class="display-4 lh-1 text-body-emphasis">
-          {{(messageService.list$ | async | nullAsArray | last)?.title}}
-        </h1>
-        <p class="lead">
-          {{(messageService.list$ | async | nullAsArray | last)?.description}}
-        </p>
-        <p class="text-center text-6xl fw-bold">{{(messageService.list$ | async | nullAsArray | last)?.versicle}}</p>
-        <p class="text-center">{{(messageService.list$ | async | nullAsArray | last)?.author}}</p>
-      </div>
-      <div class="col-lg-5 p-0 overflow-hidden">
-        <img class="rounded" style="aspect-ratio: 1 / 1;width: 100%" src="{{imageService.imageUrl()}}" alt="" />
-      </div>
-    </div>
-
-
-    <div class="row p-4 align-items-center border">
-      <div class="col-lg-5 p-0 overflow-hidden">
-        <img class="img-fluid rounded" src="/assets/celula.jpeg" alt="" />
-      </div>
-      <div class="col-lg-7 p-3 p-lg-5 pt-lg-3">
-        <p class="text-bg-warning fw-bold text-end">Nossos PG &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
-        <h1 class="display-4 lh-1 text-body-emphasis">
-          Estudos biblicos com diversos temas
-        </h1>
-        <p class="lead">
-          Desejai afetuosamente, como meninos novamente nascidos, o leite racional, não falsificado, para que por ele vades crescendo;
-        </p>
-        <p class="text-center text-6xl fw-bold">1 PEDRO 2:2</p>
-        <p class="text-center"></p>
-      </div>
-    </div>
-  </div>
-</div>
+<app-hero />
+<app-welcome />
+<app-news />
 <!--<page-about-us id="about-us"></page-about-us>-->
 <app-video></app-video>
 <page-fe id="page-fe"></page-fe>

@@ -44,8 +44,38 @@
   background: rgba(253, 253, 253, 0.2);
 }
 
+
+.position-top-left {
+  position: absolute;
+  top: -20px;
+  left: -200px;
+  width: 400px;
+}
+.position-top-right {
+  position: absolute;
+  top: 100px;
+  right: -200px;
+  width: 600px;
+}
 @media (min-width: 576px) {
   .hero-container {
-    height: 60vh;
+    height: 80vh;
   }
  }
+
+@media (max-width: 576px) {
+  .position-top-left {
+    position: absolute;
+    top: -20px;
+    left: -200px;
+    width: 250px;
+  }
+  .position-top-right {
+    position: absolute;
+    top: 100px;
+    right: -200px;
+    width: 270px;
+  }
+
+ }
+
